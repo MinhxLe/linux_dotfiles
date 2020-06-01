@@ -105,3 +105,7 @@ fi
 export EDITOR="vim"
 
 eval "$(fasd --init auto)"
+
+# python virtual env
+export WORKON_HOME=~/.virtualenvs
+source /usr/bin/virtualenvwrapper.sh
