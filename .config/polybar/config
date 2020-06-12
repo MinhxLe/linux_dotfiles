@@ -2,11 +2,11 @@
 ;------------;
 ; DIMENSIONS ;
 ;------------;
-
 width = 100%
 height = 30
-offset-y = -1
+offset-y = 0
 offset-x = 0
+radius = 0
 
 border-top-size = 0
 border-bottom-size = 0
@@ -17,10 +17,9 @@ border-left-size = 0
 ;----------;
 ; LOCATION ;
 ;----------;
-
-bottom = false
-wm-restack = none
 override-redirect = false
+wm-restack = i3
+bottom = false
 monitor = ${env:MONITOR:fallback-value}
 
 ;-------;
@@ -45,13 +44,13 @@ border-color = ${xrdb:config.Pallete.light2}
 ;---------------;
 
 fixed-center = true
-padding-left = 1 
-padding-right = 1
+padding-left = 2
+padding-right = 2
 module-margin = 1.5
 
 modules-left = i3
-;modules-center = spotify
-modules-right = cpu volume battery date time
+modules-center = spotify
+modules-right = cpu memory volume battery date time
 
 tray-position = none
 tray-detached = true
@@ -207,7 +206,7 @@ type = custom/script
 interval = 1
 format-prefix = " "
 format = <label>
-exec = python2 ~/.config/polybar/scripts/spotify.py
+exec = python ~/.config/polybar/scripts/spotify_status.py -f '{artist} - {song}'
 format-underline = #1db954
 
 

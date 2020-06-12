@@ -10,7 +10,7 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'chengzeyi/fzf-preview.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-rhubarb'
@@ -59,23 +59,50 @@ map <Leader>f :NERDTreeToggle<CR>
 " airline
 let g:airline_theme = 'gruvbox'
 let g:airline#extensions#coc#enabled = 1
-let g:airline#extensions#branch#enabled = 0
+let g:airline#extensions#branch#enabled = 1 
 let g:airline#extensions#hunks#enabled = 1 
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.crypt = '🔒'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.maxlinenr = '㏑'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.notexists = 'Ɇ'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.dirty='⚡'
 
 :nmap <silent> <C-j> :wincmd j<CR>
 
 "fzf
-":nmap <silent> <C-b> :BLines<CR>
+:nmap <silent> <C-b> :BLines<CR>
 :nmap <silent> <C-p> :Files<CR>
 :nmap <silent> <C-t> :Tags<CR>
 :nmap <silent> <C-s> :Ag<CR>
 :nmap <silent> <C-b> :Windows<CR>
 set wildmode=list:longest,full
 set wildignore+=*.so,*.swp,*.zip,*.pyg,*.pyc,__pycache__
-let $FZF_DEFAULT_COMMAND =  "ag -g \"\""
+let $FZF_DEFAULT_COMMAND = "ag -g \"\""
 let $FZF_DEFAULT_OPTS=' --layout=reverse  --margin=1,4'
 
 "if has('nvim')

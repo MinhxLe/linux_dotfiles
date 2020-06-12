@@ -9,6 +9,8 @@ alias rm="rm -i"
 
 # programs
 alias v="nvim"
+alias vim="nvim"
+alias vrs='rm -f ~/.vim/tmp/*'
 
 
 #github

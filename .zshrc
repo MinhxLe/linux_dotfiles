@@ -102,10 +102,11 @@ if [ -f $HOME/.aliases ]; then
   source $HOME/.aliases
 fi
 
-export EDITOR="vim"
+export EDITOR="nvim"
 
 eval "$(fasd --init auto)"
 
 # python virtual env
 export WORKON_HOME=~/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
+export PATH=$PATH:/home/minh/.local/bin

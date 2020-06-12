@@ -5,8 +5,9 @@
 
 width = 100%
 height = 30
-offset-y = -1
+offset-y = 0
 offset-x = 0
+radius = 0
 
 border-top-size = 0
 border-bottom-size = 0
@@ -18,7 +19,7 @@ border-left-size = 0
 ; LOCATION ;
 ;----------;
 
-bottom = true
+bottom = false
 wm-restack = none
 override-redirect = false
 monitor = ${env:MONITOR:fallback-value}
@@ -26,11 +27,9 @@ monitor = ${env:MONITOR:fallback-value}
 ;-------;
 ; FONTS ;
 ;-------;
-
-font-0 = Gohu GohuFont:size=14;3
-font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=12;3"
-font-2 = "Source Han Sans JP:pixelsize=10;3"
-
+font-0 = ${xrdb:config.Font.small_font}
+font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=11"
+;font-2 = "Source Han Sans JP:pixelsize=11;3"
 ;font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=12;3"
 ;font-3 = "Font Awesome 5 Brands:pixelsize=12;3"
 
@@ -38,23 +37,22 @@ font-2 = "Source Han Sans JP:pixelsize=10;3"
 ; COLORS ;
 ;--------;
 
-background = #5a000000
-;${xrdb:config.Pallete.secondary1}
-foreground = ${xrdb:config.Pallete.primary1}
-border-color = {xrdb:config.Pallete.primary2}
+background = ${xrdb:config.Pallete.dark1}
+foreground = ${xrdb:config.Pallete.light1}
+border-color = ${xrdb:config.Pallete.light2} 
 
 ;---------------;
 ; MISCELLANEOUS ;
 ;---------------;
 
 fixed-center = true
-padding-left = 1 
-padding-right = 1
+padding-left = 2
+padding-right = 2
 module-margin = 1.5
 
 modules-left = i3
-;modules-center = spotify
-modules-right = cpu volume battery date time
+modules-center = spotify
+modules-right = cpu memory volume battery date time
 
 tray-position = none
 tray-detached = true
@@ -74,8 +72,8 @@ pin-workspaces = true
 strip-wsnumbers = true
 enable-scroll = false
 
-label-unfocused-foreground = #7c7eb9
-label-focused-foreground = #c27fbc
+abel-focused-foreground = ${xrdb:config.Pallete.light1}
+label-unfocused-foreground = ${xrdb:config.Pallete.light2}
 label-urgent-foreground = #FFFFF
 
 
@@ -210,7 +208,7 @@ type = custom/script
 interval = 1
 format-prefix = " "
 format = <label>
-exec = python2 ~/.config/polybar/scripts/spotify.py
+exec = python ~/.config/polybar/scripts/spotify_status.py -f '{artist} - {song}'
 format-underline = #1db954
 
 
