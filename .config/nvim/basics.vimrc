@@ -5,7 +5,7 @@ set backupdir=~/.vim/tmp/.
 set directory=~/.vim/tmp/.
 set backspace=2
 filetype plugin indent on
-set clipboard=unnamedplus
+set clipboard^=unnamed,unnamedplus
 :autocmd VimResized * wincmd =
 set fileformat=unix
 

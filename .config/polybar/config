@@ -48,9 +48,10 @@ padding-left = 2
 padding-right = 2
 module-margin = 1.5
 
-modules-left = i3
-modules-center = spotify
-modules-right = cpu memory volume battery date time
+modules-left = i3 
+modules-center = cpu memory network
+;modules-right = cpu memory network volume date time
+modules-right = volume date time
 
 tray-position = none
 tray-detached = true
@@ -99,11 +100,13 @@ type = internal/date
 
 interval = 1.0
 
-date =  %H:%M
+date =  %I:%M %p
 
 [module/date]
 type = internal/date
-date =  %e %B - %A
+;date =  %e %B - %A
+date =  %B %e
+; date =  %Y-%m-%d%
 label = %date%
 
 
@@ -198,7 +201,7 @@ label =  %gb_used%
 
 [module/network]
 type = internal/network
-interface = wlp2s0
+interface = wlp3s0f0u8
 label-connected =  %downspeed% |  %upspeed%
 
 [module/spotify]

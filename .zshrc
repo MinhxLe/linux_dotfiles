@@ -68,7 +68,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git tmux)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -104,7 +104,10 @@ fi
 
 export EDITOR="nvim"
 
-eval "$(fasd --init auto)"
+if command -v fasd &> /dev/null
+then
+    eval "$(fasd --init auto)"
+fi
 
 # python virtual env
 export WORKON_HOME=~/.virtualenvs

@@ -1,19 +1,17 @@
 #config
 alias config='/usr/bin/git --git-dir=/home/minh/.cfg/ --work-tree=/home/minh'
 
-# fasd
-
 # basics
 alias sudo="sudo -E"
 alias rm="rm -i"
 
-# programs
+# vim 
 alias v="nvim"
 alias vim="nvim"
 alias vrs='rm -f ~/.vim/tmp/*'
 
 
-#github
+# git
 alias gac="git add -A && git commit -m"
 alias gp='git push'
 
@@ -22,22 +20,8 @@ function gro {
   open https://github.com/$REPO
 }
 
-#tools
+# history
 alias hfzf='history | fzf'
-
-#python venv
-alias ivenv='virtualenv -p python venv'
-alias avenv='source venv/bin/activate'
-alias rvenv='rm -rf venv'
-
-#sqitch
-function sqr {
-  sqitch revert $1
-}
-
-function sqd {
-  sqitch deploy $1
-}
 
 #python
 alias python_clr='find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf'
@@ -48,14 +32,6 @@ function pip_install_git {
   pip install $GIT_PKG
 }
 
-#docker
-function docker_ssh {
-  docker exec -it $1 bash
-}
-alias docker_ls='docker container list'
-
-
-# random
 wo () {
   ENV=$1
   workon $ENV

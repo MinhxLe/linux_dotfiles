@@ -95,11 +95,10 @@ let g:airline_symbols.dirty='⚡'
 :nmap <silent> <C-j> :wincmd j<CR>
 
 "fzf
-:nmap <silent> <C-b> :BLines<CR>
+:nmap <silent> <C-f> :Lines<CR>
 :nmap <silent> <C-p> :Files<CR>
 :nmap <silent> <C-t> :Tags<CR>
 :nmap <silent> <C-s> :Ag<CR>
-:nmap <silent> <C-b> :Windows<CR>
 set wildmode=list:longest,full
 set wildignore+=*.so,*.swp,*.zip,*.pyg,*.pyc,__pycache__
 let $FZF_DEFAULT_COMMAND = "ag -g \"\""
