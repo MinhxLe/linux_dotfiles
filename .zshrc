@@ -102,7 +102,16 @@ if [ -f $HOME/.aliases ]; then
   source $HOME/.aliases
 fi
 
-export EDITOR="nvim"
+if [ -f $HOME/.aliases ]; then
+  source $HOME/.rh.aliases
+fi
+
+if command -v nvim &> /dev/null 
+then
+    export EDITOR="nvim"
+else
+    export EDITOR="vim"
+fi
 
 if command -v fasd &> /dev/null
 then
@@ -117,3 +126,8 @@ elif [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
     source /usr/local/bin/virtualenvwrapper.sh
 fi
 export PATH=$PATH:/home/minh/.local/bin
+
+if [ -f /usr/local/opt/kube-ps1/share/kube-ps1.sh ]; then
+    source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+    PS1='$(kube_ps1)'$PS1
+fi
