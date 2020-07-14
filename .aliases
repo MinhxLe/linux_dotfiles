@@ -1,5 +1,5 @@
 #config
-alias config='/usr/bin/git --git-dir=/home/minh/.cfg/ --work-tree=/home/minh'
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # basics
 alias sudo="sudo -E"
@@ -8,7 +8,7 @@ alias rm="rm -i"
 # vim 
 alias v="nvim"
 alias vim="nvim"
-alias vrs='rm -f ~/.vim/tmp/*'
+alias vrs='rm -f $HOME/.vim/tmp/*'
 
 
 # git
