@@ -1,4 +1,0 @@
-!clear control
-!clear Mod1
-!add control = Alt_L Alt_R
-!add Mod1 = Control_L Control_R

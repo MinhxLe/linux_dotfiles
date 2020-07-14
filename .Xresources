@@ -1,5 +1,0 @@
-! rxvt
-#include ".Xresources.d/rxvt/rxvt-unicode"
-#include ".Xresources.d/rxvt/rxvt-gruvbox"
-
-#include ".Xresources.d/config"
