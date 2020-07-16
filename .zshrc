@@ -98,14 +98,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-if [ -f $HOME/.aliases ]; then
-  source $HOME/.aliases
-fi
-
-if [ -f $HOME/.aliases ]; then
-  source $HOME/.rh.aliases
-fi
-
 if command -v nvim &> /dev/null 
 then
     export EDITOR="nvim"
@@ -118,16 +110,46 @@ then
     eval "$(fasd --init auto)"
 fi
 
-# python virtual env
-export WORKON_HOME=~/.virtualenvs
-if [ -f /usr/bin/virtualenvwrapper.sh ]; then
-    source /usr/bin/virtualenvwrapper.sh
-elif [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
-    source /usr/local/bin/virtualenvwrapper.sh
+if [ -f $HOME/.aliases ]; then
+  source $HOME/.aliases
 fi
-export PATH=$PATH:/home/minh/.local/bin
+
+# python virtual env
+#export WORKON_HOME=~/.virtualenvs
+#if [ -f /usr/bin/virtualenvwrapper.sh ]; then
+#    source /usr/bin/virtualenvwrapper.sh
+#elif [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+#    source /usr/local/bin/virtualenvwrapper.sh
+#fi
+#export PATH=$PATH:$HOME/.local/bin
+
+
+# robinhood stuff
+if [ -f $HOME/.rh.env_vars ]; then
+    source $HOME/.rh.env_vars
+fi
 
 if [ -f /usr/local/opt/kube-ps1/share/kube-ps1.sh ]; then
     source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
     PS1='$(kube_ps1)'$PS1
 fi
+export PROJECT_HOME="/Users/minh.le/robinhood"
+export PATH="$PATH:$HOME/robinhood/phabricator/arcanist/bin/"
+# BEGIN ANSIBLE MANAGED BLOCK
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+if which pyenv-virtualenv-init > /dev/null; then
+  eval "$(pyenv virtualenv-init -)"
+fi
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+export WORKON_HOME="$HOME/.virtualenvs"
+pyenv virtualenvwrapper_lazy
+export CPPFLAGS=-I/usr/local/opt/openssl@1.1/include
+export LDFLAGS=-L/usr/local/opt/openssl@1.1/lib
+# END ANSIBLE MANAGED BLOCK
+
+if [ -f $HOME/.aliases ]; then
+  source $HOME/.rh.aliases
+fi
+
