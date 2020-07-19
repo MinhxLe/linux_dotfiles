@@ -144,7 +144,10 @@ if which pyenv-virtualenv-init > /dev/null; then
 fi
 export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 export WORKON_HOME="$HOME/.virtualenvs"
-pyenv virtualenvwrapper_lazy
+
+if command -v pyenv 1>/dev/null 2>&1; then
+    pyenv virtualenvwrapper_lazy
+fi
 export CPPFLAGS=-I/usr/local/opt/openssl@1.1/include
 export LDFLAGS=-L/usr/local/opt/openssl@1.1/lib
 # END ANSIBLE MANAGED BLOCK
