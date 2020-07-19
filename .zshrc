@@ -115,12 +115,12 @@ if [ -f $HOME/.aliases ]; then
 fi
 
 # python virtual env
-#export WORKON_HOME=~/.virtualenvs
-#if [ -f /usr/bin/virtualenvwrapper.sh ]; then
-#    source /usr/bin/virtualenvwrapper.sh
-#elif [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
-#    source /usr/local/bin/virtualenvwrapper.sh
-#fi
+export WORKON_HOME="$HOME/.virtualenvs"
+if [ -f /usr/bin/virtualenvwrapper.sh ]; then
+    source /usr/bin/virtualenvwrapper.sh
+elif [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+fi
 #export PATH=$PATH:$HOME/.local/bin
 
 
