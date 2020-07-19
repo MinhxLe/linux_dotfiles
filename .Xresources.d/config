@@ -1,0 +1,18 @@
+! pallete
+#include "palletes/gruvbox"
+
+config.Pallete.primary1: color15 
+config.Pallete.primary2: color7
+config.Pallete.secondary1: color0
+config.Pallete.secondary2: color8
+
+config.Pallete.light1: color15 
+config.Pallete.light2: color7
+config.Pallete.dark1: color0
+config.Pallete.dark2: color8
+
+! font
+config.Font.normal_font: xft:SF-Pro-Display-Light:size=11 
+config.Font.large_font: xft:SF-Pro-Display-Light:size=14 
+config.Font.small_font: xft:SF-Pro-Display-Light:size=10
+config.Font.bold_font: xft:SF-Pro-Display-Light:size=11
