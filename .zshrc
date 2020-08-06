@@ -156,3 +156,4 @@ if [ -f $HOME/.rh.aliases ]; then
   source $HOME/.rh.aliases
 fi
 
+# PS1='[\u@\h \W]\$ '$PS1

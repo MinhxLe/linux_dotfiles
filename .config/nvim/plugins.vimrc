@@ -41,7 +41,7 @@ Plug 'drewtempelmeyer/palenight.vim'
 Plug 'jaredgorski/spacecamp'
 Plug 'jaredgorski/fogbell.vim'
 "Plug 'jupyter-vim/jupyter-vim'
-
+"Plug 'chaoren/vim-wordmotion'
 "nvim plugins
     "Plug 'Shougo/deoplete.nvim', {'do' : ':UpdateRemotePlugins'}
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
