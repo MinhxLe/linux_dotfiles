@@ -1,0 +1,6 @@
+/* added https://github.com/marvinkreis/rofi-file-browser-extended */
+configuration {
+    modi: "combi";
+    theme: "gruvbox";
+    combi-modi: "window,run,file-browser";
+}
