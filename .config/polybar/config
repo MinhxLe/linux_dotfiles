@@ -26,7 +26,7 @@ monitor = ${env:MONITOR:fallback-value}
 ; FONTS ;
 ;-------;
 font-0 = ${xrdb:config.Font.small_font}
-font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=11"
+font-1 = "Font Awesome:style=Normal:pixelsize=11"
 ;font-2 = "Source Han Sans JP:pixelsize=11;3"
 ;font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=12;3"
 ;font-3 = "Font Awesome 5 Brands:pixelsize=12;3"
@@ -49,12 +49,12 @@ padding-right = 2
 module-margin = 1.5
 
 modules-left = i3 
-modules-center = cpu memory network
-;modules-right = cpu memory network volume date time
-modules-right = volume date time
+modules-center = cpu cpu_temp gpu memory network
+modules-right = spotify volume date time
 
 tray-position = none
 tray-detached = true
+separator = "|"
 
 
 ;---------;
@@ -192,12 +192,23 @@ label-disconnected =  Not Connected
 
 [module/cpu]
 type = internal/cpu
-label =  %percentage%%
+; label =  %percentage%%
+label = CPU: %percentage%%
 
+[module/cpu_temp]
+type = custom/script
+format = <label>
+exec = sensors | grep Tdie | awk '{print $2}' 
 
+[module/gpu]
+type = custom/script
+exec = nvidia-smi --query-gpu=utilization.gpu,temperature.gpu --format=noheader,nounits,csv | awk -F ',' '{ print "GPU:", $1"%"$2"°C" }'
+
+interval = 10
 [module/memory]
 type = internal/memory
-label =  %gb_used%
+; label =  %gb_used%
+label = MEM: %gb_used%
 
 [module/network]
 type = internal/network
@@ -209,7 +220,7 @@ type = custom/script
 interval = 1
 format-prefix = " "
 format = <label>
-exec = python ~/.config/polybar/scripts/spotify_status.py -f '{artist} - {song}'
+exec = bash ~/.config/polybar/scripts/polybar-spotify/get_spotify_status.sh
 format-underline = #1db954
 
 

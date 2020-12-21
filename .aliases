@@ -36,3 +36,15 @@ wo () {
   ENV=$1
   workon $ENV
 }
+
+alias clip='xclip -sel clip'
+alias tb='tensorboard --logdir .'
+alias pwdc="pwd | xclip -sel clip"
+
+alias d='docker'
+alias dcls='docker container ls'
+
+wgpu='watch nvidia-smi'
+
+alias python=python3
+

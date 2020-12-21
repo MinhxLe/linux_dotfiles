@@ -7,4 +7,3 @@
 xbindkeys
 xrdb ~/.Xresources
 exec i3
-# exec bspwm
