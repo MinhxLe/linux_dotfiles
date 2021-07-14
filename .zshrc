@@ -117,51 +117,34 @@ fi
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # python virtual env
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-export WORKON_HOME="$HOME/.virtualenvs"
-export VIRTUALENVWRAPPER_VIRTUALENV=~/.local/bin/virtualenv
-if [ -f /usr/bin/virtualenvwrapper.sh ]; then
-    source /usr/bin/virtualenvwrapper.sh
-elif [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
-    source /usr/local/bin/virtualenvwrapper.sh
-elif [ -f ~/.local/bin/virtualenvwrapper.sh ]; then
-    source ~/.local/bin/virtualenvwrapper.sh
-fi
+#export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+#export WORKON_HOME="$HOME/.virtualenvs"
+#export VIRTUALENVWRAPPER_VIRTUALENV=~/.local/bin/virtualenv
+#if [ -f /usr/bin/virtualenvwrapper.sh ]; then
+#    source /usr/bin/virtualenvwrapper.sh
+#elif [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+#    source /usr/local/bin/virtualenvwrapper.sh
+#elif [ -f ~/.local/bin/virtualenvwrapper.sh ]; then
+#    source ~/.local/bin/virtualenvwrapper.sh
+#fi
 #export PATH=$PATH:$HOME/.local/bin
 
-# # CUDA
+# CUDA
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
 
-# robinhood stuff
-if [ -f $HOME/.rh.env_vars ]; then
-    source $HOME/.rh.env_vars
+# zshrc highlights
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
+
+# pyenv
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)" 
+
+# parafin
+# THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/minh/.sdkman"
+[[ -s "/Users/minh/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/minh/.sdkman/bin/sdkman-init.sh"
+
+if [ -f $HOME/.parafin_config ]; then
+  source $HOME/.parafin_config
 fi
 
-if [ -f /usr/local/opt/kube-ps1/share/kube-ps1.sh ]; then
-    source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
-    PS1='$(kube_ps1)'$PS1
-fi
-export PROJECT_HOME="/Users/minh.le/robinhood"
-export PATH="$PATH:$HOME/robinhood/phabricator/arcanist/bin/"
-# BEGIN ANSIBLE MANAGED BLOCK
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-if which pyenv-virtualenv-init > /dev/null; then
-  eval "$(pyenv virtualenv-init -)"
-fi
-export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
-export WORKON_HOME="$HOME/.virtualenvs"
-
-if command -v pyenv 1>/dev/null 2>&1; then
-    pyenv virtualenvwrapper_lazy
-fi
-export CPPFLAGS=-I/usr/local/opt/openssl@1.1/include
-export LDFLAGS=-L/usr/local/opt/openssl@1.1/lib
-# END ANSIBLE MANAGED BLOCK
-
-if [ -f $HOME/.rh.aliases ]; then
-  source $HOME/.rh.aliases
-fi
-
-# PS1='[\u@\h \W]\$ '$PS1

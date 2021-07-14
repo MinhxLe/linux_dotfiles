@@ -6,8 +6,7 @@ alias sudo="sudo -E"
 alias rm="rm -i"
 
 # vim 
-alias v="nvim"
-alias vim="nvim"
+#alias nvim='~/Applications/nvim-osx64/bin/nvim'
 alias vrs='rm -f $HOME/.vim/tmp/*'
 
 
@@ -48,3 +47,5 @@ wgpu='watch nvidia-smi'
 
 alias python=python3
 
+# sbt
+alias sbtc='sbt console -nc'
