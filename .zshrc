@@ -147,4 +147,6 @@ export SDKMAN_DIR="/Users/minh/.sdkman"
 if [ -f $HOME/.parafin_config ]; then
   source $HOME/.parafin_config
 fi
+export PATH="/usr/local/opt/postgresql@12/bin:$PATH"
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

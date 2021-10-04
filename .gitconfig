@@ -4,7 +4,11 @@
 	name = Minh Le
     email = minh@parafin.com
 [alias]
-    co = checkout
-    br = branch
-    ci = commit
-    st = status
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+[merge]
+	tool = nvimdiff
+[core]
+	excludesfile = /Users/minh/.gitignore_global

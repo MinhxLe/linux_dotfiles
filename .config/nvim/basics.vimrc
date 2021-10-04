@@ -9,19 +9,40 @@ set clipboard^=unnamed,unnamedplus
 :autocmd VimResized * wincmd =
 set fileformat=unix
 
-"aestetics
+" aesthetic
 syntax on
 set wildmenu
 set completeopt=longest,menuone
 set laststatus=2
 set background=dark
 set ruler
+"set cursorline
+
 set number
-"set relativenumber 
+"augroup numbertoggle
+"  autocmd!
+"  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+"  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+"augroup END
+
+" Relative or absolute number lines
+function! NumberToggle()
+    if(&nu == 1)
+        set nu!
+        set rnu
+    else
+        set nornu
+        set nu
+    endif
+endfunction
+
+nnoremap <leader>n :call NumberToggle()<CR>
+
 nnoremap <leader>c :execute "set colorcolumn=" . (&colorcolumn == "" ? "80" : "")<CR>
 "if (has("termguicolors"))
 "  set termguicolors
 "endif
+"
 "
 "search 
 set hlsearch

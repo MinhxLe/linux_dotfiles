@@ -1,18 +1,19 @@
 #config
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # basics
 alias sudo="sudo -E"
 alias rm="rm -i"
 
 # vim 
-#alias nvim='~/Applications/nvim-osx64/bin/nvim'
+alias vim='nvim'
 alias vrs='rm -f $HOME/.vim/tmp/*'
 
 
 # git
 alias gac="git add -A && git commit -m"
 alias gp='git push'
+alias rm_orig='find . -regex ".*.orig" -delete'
 
 function gro {
   REPO=$1
@@ -21,6 +22,12 @@ function gro {
 
 # history
 alias hfzf='history | fzf'
+alias efzf='history | fzf | awk '{$1=""}1' | sh -'
+
+# pyenv
+alias pea='pyenv activate'
+alias pev='pyenv virtualenv'
+alias ped='pyenv deactivate'
 
 #python
 alias python_clr='find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf'
@@ -49,3 +56,6 @@ alias python=python3
 
 # sbt
 alias sbtc='sbt console -nc'
+
+# terraform
+alias tf='terraform'

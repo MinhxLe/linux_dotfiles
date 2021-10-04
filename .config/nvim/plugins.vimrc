@@ -10,12 +10,14 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'chengzeyi/fzf-preview.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'nvim-treesitter/nvim-treesitter'
 "Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-rhubarb'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'urbainvaes/vim-ripple'
+"Plug 'unblevable/quick-scope'
 "Tagbar
 Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
@@ -28,6 +30,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-eunuch'
 Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-surround'
+
 "Plug 'doums/coBra'
 "colorschemes
 Plug 'tomasr/molokai'
@@ -44,8 +47,10 @@ Plug 'jaredgorski/fogbell.vim'
 "Plug 'chaoren/vim-wordmotion'
 "nvim plugins
     "Plug 'Shougo/deoplete.nvim', {'do' : ':UpdateRemotePlugins'}
-"Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'master'}
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+" Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
+"Plug 'weirongxu/coc-explorer'
 Plug 'dense-analysis/ale'
     "Plug 'zchee/deoplete-jedi'
 call plug#end()
@@ -214,13 +219,14 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> qf <Plug>(coc-fix-current)
 
 " Remap keys for gotos
 nmap <silent> gd :call CocAction('jumpDefinition', 'split')<CR>
 nmap <silent> gdv :call CocAction('jumpDefinition', 'vsplit')<CR>
 nmap <silent> gy :vsplit<CR><Plug>(coc-type-definition)
 nmap <silent> gi :vsplit<CR><Plug>(coc-implementation)
-nmap <silent> gr :vsplit<CR><Plug>(coc-references)
+nmap <silent> gr <CR><Plug>(coc-references)
 
 " Used to expand decorations in worksheets
 nmap <Leader>ws <Plug>(coc-metals-expand-decoration)
@@ -237,6 +243,7 @@ function! s:show_documentation()
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
+
 
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -269,6 +276,9 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " Trigger for code actions
 " Make sure `"codeLens.enable": true` is set in your coc config
 nnoremap <leader>cl :<C-u>call CocActionAsync('codeLensAction')<CR>
+
+" Remap keys for CocAction 
+nnoremap <silent><nowait> <space>f  :<C-u>CocAction<cr>
 
 " Mappings for CoCList
 " Show all diagnostics.
