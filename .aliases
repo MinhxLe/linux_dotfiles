@@ -38,6 +38,12 @@ function pip_install_git {
   pip install $GIT_PKG
 }
 
+function pyfmt {
+    PYTHON_FILE=$1
+    python -m black $PYTHON_FILE && \
+    python -m flake8 $PYTHON_FILE
+}
+
 wo () {
   ENV=$1
   workon $ENV
@@ -59,3 +65,5 @@ alias sbtc='sbt console -nc'
 
 # terraform
 alias tf='terraform'
+
+

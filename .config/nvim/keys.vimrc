@@ -23,3 +23,14 @@ let @d = ':s/^/import pdb; pdb.set_trace()/'
 let @s = ':%s/\s\+$//e'
 "terminal
 tnoremap <Esc> <C-\><C-n>
+
+
+function FilenameToScalaClassname(foo)
+	let path_elements=split(a:foo, "/")
+	return join(path_elements[4:-2] + [path_elements[-1][:-7]], ".")
+endfunction
+
+nnoremap <silent> <leader>pn :let @+ = FilenameToScalaClassname(expand("%"))<cr>
+
+
+

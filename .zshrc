@@ -114,6 +114,11 @@ if [ -f $HOME/.aliases ]; then
   source $HOME/.aliases
 fi
 
+if [ -f $HOME/.pf_aliases ]; then
+  source $HOME/.pf_aliases
+fi
+
+
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # python virtual env
@@ -155,3 +160,5 @@ fi
 export PATH="/usr/local/opt/postgresql@12/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $HOME/.cargo/env ] && source $HOME/.cargo/env
+
